@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie Clicker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="min-h-screen bg-cover bg-center bg-fixed px-6 py-8 text-slate-900"
+    style="
+      background-image: url(&quot;/cookieClicker/content/background.png&quot;);
+    "
+  >
+    <main class="mx-auto grid max-w-4xl gap-6 md:grid-cols-[2fr_1fr]">
+      <!-- ฝั่งซ้าย: พื้นที่คุกกี้ -->
+      <section
+        class="rounded-xl border-4 border-amber-800 p-6 shadow-sm bg-amber-300"
+      >
+        <h1 class="mb-6 text-3xl font-bold">Cookie Clicker!</h1>
+        <div class="space-y-2">
+          <p id="cookie-count" class="text-lg">Cookies: 0</p>
+          <p id="click-power" class="text-lg">Click power: 1</p>
+          <p id="auto-power" class="text-lg">Auto cookies: 0 / sec</p>
+        </div>
+
+        <!-- คุกกี้เรียงแถว -->
+        <div class="mt-8 flex flex-wrap gap-4 items-end">
+          <!-- คุกกี้ตัวที่ 1 -->
+          <button
+            id="cookie-button"
+            type="button"
+            class="transition-transform duration-100 ease-in-out hover:scale-110 active:scale-90 focus:outline-none"
+          >
+            <img
+              src="/cookieClicker/content/cookie.png"
+              alt="Cookie 1"
+              class="h-44 w-44 object-contain"
+            />
+          </button>
+
+          <!-- คุกกี้ตัวที่ 2 (ซ่อนไว้ก่อน) -->
+          <button
+            id="cookie-button-2"
+            type="button"
+            class="hidden transition-transform duration-100 ease-in-out hover:scale-110 active:scale-90 focus:outline-none"
+          >
+            <img
+              src="/cookieClicker/content/cookie.png"
+              alt="Cookie 2"
+              class="h-44 w-44 object-contain"
+            />
+          </button>
+
+          <!-- คุกกี้ตัวที่ 3 (ซ่อนไว้ก่อน) -->
+          <button
+            id="cookie-button-3"
+            type="button"
+            class="hidden transition-transform duration-100 ease-in-out hover:scale-110 active:scale-90 focus:outline-none"
+          >
+            <img
+              src="/cookieClicker/content/cookie.png"
+              alt="Cookie 3"
+              class="h-44 w-44 object-contain"
+            />
+          </button>
+        </div>
+      </section>
+
+      <!-- ฝั่งขวา: Upgrades -->
+      <section
+        class="rounded-xl border-4 border-amber-800 bg-amber-300 p-6 shadow-sm overflow-y-auto max-h-[90vh]"
+      >
+        <h2 class="mb-4 text-2xl font-semibold">Upgrades</h2>
+        <div class="space-y-3">
+          <!-- Upgrades ตัวที่ 1 -->
+          <p
+            class="text-sm font-semibold text-amber-900 uppercase tracking-wide"
+          >
+            Cookie 1
+          </p>
+          <button
+            id="buy-click"
+            type="button"
+            class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          ></button>
+          <button
+            id="buy-auto"
+            type="button"
+            class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          ></button>
+
+          <!-- ปุ่มซื้อ Cookie Buddy 2 -->
+          <div class="pt-2 border-t-2 border-amber-700"></div>
+          <button
+            id="buy-cookie-buddy"
+            type="button"
+            class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          ></button>
+
+          <!-- Upgrades ตัวที่ 2 (ซ่อนไว้ก่อน) -->
+          <div id="buddy-upgrades-section" class="hidden space-y-3">
+            <div class="pt-2 border-t-2 border-amber-700"></div>
+            <p
+              class="text-sm font-semibold text-amber-900 uppercase tracking-wide"
+            >
+              Cookie 2
+            </p>
+            <button
+              id="buy-click-2"
+              type="button"
+              class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            ></button>
+            <button
+              id="buy-auto-2"
+              type="button"
+              class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            ></button>
+          </div>
+
+          <!-- ปุ่มซื้อ Cookie Buddy 3 -->
+          <div class="pt-2 border-t-2 border-amber-700"></div>
+          <button
+            id="buy-cookie-buddy-3"
+            type="button"
+            class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+          ></button>
+
+          <!-- Upgrades ตัวที่ 3 (ซ่อนไว้ก่อน) -->
+          <div id="buddy-upgrades-section-3" class="hidden space-y-3">
+            <div class="pt-2 border-t-2 border-amber-700"></div>
+            <p
+              class="text-sm font-semibold text-amber-900 uppercase tracking-wide"
+            >
+              Cookie 3
+            </p>
+            <button
+              id="buy-click-3"
+              type="button"
+              class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            ></button>
+            <button
+              id="buy-auto-3"
+              type="button"
+              class="w-full rounded-lg border-2 bg-white border-amber-800 px-4 py-3 text-left transition enabled:hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            ></button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/cookieClicker/app.js"></script>
+  </body>
+</html>
